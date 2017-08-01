@@ -2345,9 +2345,9 @@ supports-color@^3.1.0:
   dependencies:
     has-flag "^1.0.0"
 
-synse@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/synse/-/synse-0.0.2.tgz#8b97b6433c80d40198e5151127fe19a80e14db93"
+synse@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/synse/-/synse-0.0.4.tgz#793bb4d549d80e761cc4d506f5f979367d43d271"
   dependencies:
     babel-cli "^6.24.1"
     babel-preset-env "^1.6.0"

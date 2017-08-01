@@ -2,8 +2,58 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <style>
+      .vco, .vcf, .vca, speaker {
+        margin-bottom: 30px;
+      }
+    </style>
   </head>
   <body>
+    <div class="vco">
+      <label>
+        Oscillator Magnification
+        <input class="js-oscillator-magnification" />
+      </label>
+      <label>
+        Oscillator Wave Type
+        <select class="js-oscillator-wave-type">
+        </select>
+      </label>
+    </div>
+    <div class="vcf">
+      <label>
+        Low Pass Filter
+        <input class="js-low-pass" />
+      </label>
+      <label>
+        High Pass Filter
+        <input class="js-high-pass" />
+      </label>
+    </div>
+    <div class="vca">
+      <label>
+        Attack Time
+        <input class="js-attack-time" />
+      </label>
+      <label>
+        Decay Time
+        <input class="js-decay-time" />
+      </label>
+      <label>
+        Sustain Level
+        <input class="js-sustain-level" />
+      </label>
+      <label>
+        Release Time
+        <input class="js-release-time" />
+      </label>
+    </div>
+    <div class="speaker">
+      <label>
+        Volume
+        <input class="js-volume" />
+      </label>
+    </div>
     <script src="./dist/index.js"></script>
   </body>
 </html>
