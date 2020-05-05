@@ -132,81 +132,85 @@ function getAudioContext() {
 
 var _synse = __webpack_require__(3);
 
-// create synthesizer!
-var vco = new _synse.VCO();
-var vcf = new _synse.VCF();
-var vca = new _synse.VCA();
-var speaker = new _synse.Speaker();
-vco.outputConnect(vcf);
-vcf.outputConnect(vca);
-vca.outputConnect(speaker);
+var startButton = document.querySelector('.js-start-button');
 
-new _synse.Keyboard(vco, vca);
+startButton.addEventListener('click', function () {
+  // create synthesizer!
+  var vco = new _synse.VCO();
+  var vcf = new _synse.VCF();
+  var vca = new _synse.VCA();
+  var speaker = new _synse.Speaker();
+  vco.outputConnect(vcf);
+  vcf.outputConnect(vca);
+  vca.outputConnect(speaker);
 
-// init controllers.
-var waveTypeSelect = document.querySelector('.js-oscillator-wave-type');
-var magnification = document.querySelector('.js-oscillator-magnification');
-var lowpass = document.querySelector('.js-low-pass');
-var highpass = document.querySelector('.js-high-pass');
-var attackTime = document.querySelector('.js-attack-time');
-var decayTime = document.querySelector('.js-decay-time');
-var sustainLevel = document.querySelector('.js-sustain-level');
-var releaseTime = document.querySelector('.js-release-time');
-var volume = document.querySelector('.js-volume');
+  new _synse.Keyboard(vco, vca);
 
-Object.values(_synse.VCO.waveTypes).forEach(function (w) {
-  var o = document.createElement('option');
-  o.value = w;
-  o.text = w;
-  if (w === vco.waveType) {
-    o.selected = true;
-  }
-  waveTypeSelect.appendChild(o);
-});
+  // init controllers.
+  var waveTypeSelect = document.querySelector('.js-oscillator-wave-type');
+  var magnification = document.querySelector('.js-oscillator-magnification');
+  var lowpass = document.querySelector('.js-low-pass');
+  var highpass = document.querySelector('.js-high-pass');
+  var attackTime = document.querySelector('.js-attack-time');
+  var decayTime = document.querySelector('.js-decay-time');
+  var sustainLevel = document.querySelector('.js-sustain-level');
+  var releaseTime = document.querySelector('.js-release-time');
+  var volume = document.querySelector('.js-volume');
 
-magnification.value = vco.magnification;
-lowpass.value = vcf.lowpassFrequency;
-highpass.value = vcf.highpassFrequency;
-attackTime.value = vca.attackTime;
-decayTime.value = vca.decayTime;
-sustainLevel.value = vca.sustainLevel;
-releaseTime.value = vca.releaseTime;
-volume.value = speaker.volume;
+  Object.values(_synse.VCO.waveTypes).forEach(function (w) {
+    var o = document.createElement('option');
+    o.value = w;
+    o.text = w;
+    if (w === vco.waveType) {
+      o.selected = true;
+    }
+    waveTypeSelect.appendChild(o);
+  });
 
-waveTypeSelect.addEventListener('change', function (e) {
-  vco.waveType = e.target.value;
-});
+  magnification.value = vco.magnification;
+  lowpass.value = vcf.lowpassFrequency;
+  highpass.value = vcf.highpassFrequency;
+  attackTime.value = vca.attackTime;
+  decayTime.value = vca.decayTime;
+  sustainLevel.value = vca.sustainLevel;
+  releaseTime.value = vca.releaseTime;
+  volume.value = speaker.volume;
 
-magnification.addEventListener('change', function (e) {
-  vco.magnification = Number.parseInt(e.target.value, 10);
-});
+  waveTypeSelect.addEventListener('change', function (e) {
+    vco.waveType = e.target.value;
+  });
 
-lowpass.addEventListener('change', function (e) {
-  vcf.lowpassFrequency = e.target.value;
-});
+  magnification.addEventListener('change', function (e) {
+    vco.magnification = Number.parseInt(e.target.value, 10);
+  });
 
-highpass.addEventListener('change', function (e) {
-  vcf.highpassFrequency = e.target.value;
-});
+  lowpass.addEventListener('change', function (e) {
+    vcf.lowpassFrequency = e.target.value;
+  });
 
-attackTime.addEventListener('change', function (e) {
-  vca.attackTime = e.target.value;
-});
+  highpass.addEventListener('change', function (e) {
+    vcf.highpassFrequency = e.target.value;
+  });
 
-decayTime.addEventListener('change', function (e) {
-  vca.decayTime = e.target.value;
-});
+  attackTime.addEventListener('change', function (e) {
+    vca.attackTime = e.target.value;
+  });
 
-sustainLevel.addEventListener('change', function (e) {
-  vca.sustainLevel = e.target.value;
-});
+  decayTime.addEventListener('change', function (e) {
+    vca.decayTime = e.target.value;
+  });
 
-releaseTime.addEventListener('change', function (e) {
-  vca.releaseTime = e.target.value;
-});
+  sustainLevel.addEventListener('change', function (e) {
+    vca.sustainLevel = e.target.value;
+  });
 
-volume.addEventListener('change', function (e) {
-  speaker.volume = e.target.value;
+  releaseTime.addEventListener('change', function (e) {
+    vca.releaseTime = e.target.value;
+  });
+
+  volume.addEventListener('change', function (e) {
+    speaker.volume = e.target.value;
+  });
 });
 
 /***/ }),
